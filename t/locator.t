@@ -12,6 +12,7 @@ my $locator = Sprockets::Locator.new(paths => {
 	},
 });
 
-plan 1;
+plan 2;
 
-is 't/data/themes/default/javascripts/a.js', $locator.find-file('a', 'js'), "Can find a file in a 'shallow' structure";
+is $locator.find-file('a', 'js'), 't/data/themes/default/javascripts/a.js', "Can find a file in a 'shallow' structure";
+is $locator.find-file('i', 'png'), 't/data/themes/_shared/images/i.png', "Finds the correct prefix";

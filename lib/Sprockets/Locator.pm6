@@ -1,6 +1,6 @@
 class Sprockets::Locator;
 
-my $extensions = <js html css txt
+my @extensions = <js html css txt
 	png gif jpg jpeg
 	otf ttf>;
 
@@ -12,11 +12,13 @@ method find-file($name, $ext) {
 	}
 
 	for %.paths.kv -> $, $ (:@directories, :%prefixes) {
-		my $prefix = %prefixes{$ext} ?? "/%prefixes{$ext}" !! "";
+		my $prefix = (my $p = %prefixes{get-type-for-ext($ext)}) ?? "/$p" !! "";
 		for @directories {
 			my $dir = "{.&rm-trail}{rm-trail $prefix}/";
 			for dir $dir {
-				return "$dir$name.$ext" if (~$_).substr($dir.chars) eq "$name.$ext";
+				my ($f, $fext) = split-name-and-extension($_.Str.substr($dir.chars));
+				say "$f~$fext ~~ $name~$ext";
+				return "$dir$name.$ext" if $f eq $name and $fext eq $ext;
 			}
 		}
 	}
@@ -28,16 +30,18 @@ sub get-type-for-ext($ext) {
 
 		return 'font' when 'otf' | 'ttf';
 	}
+	return $ext;
 }
 
-my sub split-name-and-extension($filename) {
+our sub split-name-and-extension($filename) {
 	my Str $type;
 	my @parts = do for $filename.split('.') {
 		LAST { $type = $_ }
-		last if $_ eq any($extensions);
+		last if $_ eq any(@extensions);
 
 		$_
 	}
+	fail "Missing file extension for $filename" unless $type;
 
 	(@parts.join('.'), $type)
 }
