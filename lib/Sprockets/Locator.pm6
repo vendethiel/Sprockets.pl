@@ -9,9 +9,9 @@ method find-file($name, $ext) {
 	my sub rm-trail($str) {
 		$str.subst(/\/$/, '');
 	}
-	my $prefix = (my $p = %prefixes{get-type-for-ext($ext)}) ?? "/$p" !! "";
 
 	for %.paths.kv -> $, $ (:@directories, :%prefixes) {
+		my $prefix = (my $p = %prefixes{get-type-for-ext($ext)}) ?? "/$p" !! "";
 		for @directories {
 			my $dir = "{.&rm-trail}{rm-trail $prefix}/";
 			for dir $dir {
