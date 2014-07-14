@@ -1,18 +1,8 @@
-use lib './lib/';
-use Sprockets::Locator;
+use lib './t/';
 use Test;
+use Lib::TestHelper;
 
-
-my $locator = Sprockets::Locator.new(paths => {
-	template => {
-		directories => <t/data/themes/_shared/ t/data/themes/default/ t/data/lib/>,
-		prefixes => {js => 'javascripts', css => 'stylesheets', img => 'images'}
-	},
-	vendor => {
-		directories => ('t/data/vendor/',)
-	},
-});
-
+my $locator = get-locator;
 sub file-path($path, $ext) {
 	$locator.find-file($path, $ext).realpath.subst('\\', '/', :g);
 }
@@ -24,6 +14,4 @@ is file-path('file.min', 'js'), 't/data/themes/_shared/javascripts/file.min.js',
 is file-path('multi', 'js'), 't/data/lib/javascripts/multi.js.extensions', "Can find a file with multiple extensions in its name";
 is file-path('i', 'png'), 't/data/themes/_shared/images/i.png', "Finds the correct prefix";
 
-is ~$locator.find-file('a', 'js'), q:to/JS/.trim, 'Gets the correct content';
-	console.log('hey !');
-	JS
+
