@@ -18,7 +18,7 @@ method find-file($name, $ext) {
 				next if .IO.d; # TODO go deeper §§
 
 				my ($f, $fext) = split-name-and-extension($_.Str.substr($dir.chars));
-				return $_ if $f eq $name and $fext eq $ext;
+				return File.new($_) if $f eq $name and $fext eq $ext;
 			}
 		}
 	}
