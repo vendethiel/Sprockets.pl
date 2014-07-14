@@ -24,6 +24,6 @@ is file-path('file.min', 'js'), 't/data/themes/_shared/javascripts/file.min.js',
 is file-path('multi', 'js'), 't/data/lib/javascripts/multi.js.extensions', "Can find a file with multiple extensions in its name";
 is file-path('i', 'png'), 't/data/themes/_shared/images/i.png', "Finds the correct prefix";
 
-is ~$locator.find-file('a', 'js'), q:to/JS/;
+is ~$locator.find-file('a', 'js'), q:to/JS/.trim, 'Gets the correct content';
 	console.log('hey !');
 	JS

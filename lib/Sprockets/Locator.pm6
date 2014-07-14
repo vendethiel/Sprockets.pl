@@ -1,8 +1,6 @@
-class Sprockets::Locator;
-
 use Sprockets;
 use Sprockets::File;
-
+class Sprockets::Locator {
 has %.paths;
 
 method find-file($name, $ext) {
@@ -18,7 +16,7 @@ method find-file($name, $ext) {
 				next if .IO.d; # TODO go deeper §§
 
 				my ($f, $fext) = split-name-and-extension($_.Str.substr($dir.chars));
-				return File.new($_) if $f eq $name and $fext eq $ext;
+				return Sprockets::File.new(:realpath(~$_)) if $f eq $name and $fext eq $ext;
 			}
 		}
 	}
@@ -31,4 +29,4 @@ sub get-type-for-ext($ext) {
 		return 'font' when 'otf' | 'ttf';
 	}
 	return $ext;
-}
+}}

@@ -6,8 +6,13 @@ module Sprockets {
 	our sub split-name-and-extension($filename) is export {
 		my Str $type;
 		my @parts = do for $filename.split('.') {
-			LAST { $type = $_ }
-			last if $_ eq any(@extensions);
+			# todo : uncomment that when rakudo fixes the regression
+			#LAST { $type = $_ }
+			#last if $_ eq any(@extensions);
+			if $_ eq any(@extensions) {
+				$type = $_;
+				last;
+			}
 
 			$_
 		}
