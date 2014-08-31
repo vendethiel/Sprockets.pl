@@ -3,8 +3,12 @@ use Test;
 use Lib::TestHelper; 
 
 my $locator = get-locator;
-plan 1;
+plan 2;
 
 is ~$locator.find-file('a', 'js'), q:to/JS/.trim, 'Gets the correct content';
 	console.log('hey !');
-	JS
+  JS
+
+is ~$locator.find-file('multi', 'js'), q:to/JS/.trim, 'Parses filters';
+  perl();
+  JS

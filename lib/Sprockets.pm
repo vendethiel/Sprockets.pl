@@ -3,20 +3,24 @@ my @extensions = <js html css txt
 	png gif jpg jpeg
 	otf ttf>;
 
-our sub split-name-and-extension($filename) is export {
-	my Str $type;
-	my @parts = do for $filename.split('.') {
-		# todo : uncomment that when rakudo fixes the regression
-		#LAST { $type = $_ }
-		#last if $_ eq any(@extensions);
-		if $_ eq any(@extensions) {
-			$type = $_;
-			last;
-		}
+our sub split-filename(Str $filename) is export {
+	my Str $ext;
+	my @name;
+  my $filters = [];
 
-		$_
-	}
-	fail "Missing file extension for $filename" unless $type;
+  for $filename.split('.') {
+    next $ext = $_ when any(@extensions);
+    # push onto name until $ext gets filled
+    [$@name, $filters][defined $ext].push: $_;
+  }
+	fail "Missing file extension for $filename" unless $ext;
 
-	(@parts.join('.'), $type)
+  $filters .= reverse; # last extension to be applied first
+	(@name.join('.'), $ext, $filters);
+
+  # old ...
+  #do for $filename.split('.') {
+  #  last $ext = $_ when any(@extensions);
+  #  $_
+  #}
 }
