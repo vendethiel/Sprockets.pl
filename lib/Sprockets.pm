@@ -20,4 +20,3 @@ our sub split-name-and-extension($filename) is export {
 
 	(@parts.join('.'), $type)
 }
-}

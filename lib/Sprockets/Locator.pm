@@ -1,6 +1,6 @@
 use Sprockets;
 use Sprockets::File;
-class Sprockets::Locator {
+class Sprockets::Locator;
 has %.paths;
 
 method find-file($name, $ext) {
@@ -29,4 +29,4 @@ sub get-type-for-ext($ext) {
 		return 'font' when 'otf' | 'ttf';
 	}
 	return $ext;
-}}
+}
