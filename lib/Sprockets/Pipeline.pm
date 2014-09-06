@@ -1,5 +1,5 @@
-class Sprockets::Pipeline;
 use Sprockets::Locator;
+class Sprockets::Pipeline;
 
 # Filters part...
 # To be moved out, I guess
@@ -10,7 +10,7 @@ our %filters =
   'pl' => &EVAL, # more like EVIL amirite
   ;
 
-our apply-filters(@filters, $content) {
+our sub apply-filters(@filters, $content) {
   $content;
 }
 
@@ -18,10 +18,10 @@ our apply-filters(@filters, $content) {
 has %.paths;
 has @.filters;
 
-has Locator $!locator;
+has Sprockets::Locator $!locator;
 
 submethod BUILD(|) {
 	callsame;
 
-	$!locator = Locator.new(:%.paths);
+	$!locator = Sprockets::Locator.new(:%!paths);
 }
