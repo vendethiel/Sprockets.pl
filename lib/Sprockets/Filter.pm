@@ -1,4 +1,4 @@
-module Sprockets::Filters;
+unit module Sprockets::Filters;
 
 sub temporary-filename(Str $prefix) {
   my @range = 
