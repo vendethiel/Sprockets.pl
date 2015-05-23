@@ -1,4 +1,4 @@
-module Sprockets;
+unit module Sprockets;
 my @extensions = <js html css txt
 	png gif jpg jpeg
 	otf ttf>;

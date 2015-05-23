@@ -1,6 +1,6 @@
 use Sprockets;
 use Sprockets::File;
-class Sprockets::Locator;
+unit class Sprockets::Locator;
 has %.paths;
 
 method find-file($name, $ext) {

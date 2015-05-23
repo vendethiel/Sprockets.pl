@@ -1,5 +1,5 @@
 use Sprockets::Locator;
-class Sprockets::Pipeline;
+unit class Sprockets::Pipeline;
 
 # Filters part...
 # To be moved out, I guess

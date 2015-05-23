@@ -1,6 +1,6 @@
 use lib './lib/';
 use Sprockets::Locator;
-module lib::testhelper;
+unit module lib::testhelper;
 
 my $locator = Sprockets::Locator.new(paths => {
 	template => {
