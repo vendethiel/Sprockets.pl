@@ -1,10 +1,10 @@
 {
   "name": "Sprockets",
   "version": "*",
-  "author": "github:Nami-Doc",
+  "author": "github:vendethiel",
   "description": "Ruby Sprockets-like",
   "provides": {
     "Sprockets": "lib/Sprockets.pm"
   },
-  "source-url": "git://github.com/Nami-Doc/Sprockets.pl.git"
+  "source-url": "git://github.com/vendethiel/Sprockets.pl.git"
 }
