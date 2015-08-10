@@ -1,6 +1,6 @@
 use lib './t';
 use Test;
-use Lib::TestHelper; 
+use lib::testhelper;
 
 my $locator = get-locator;
 plan 2;

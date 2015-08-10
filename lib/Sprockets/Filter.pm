@@ -1,4 +1,4 @@
-module Sprockets::Filters;
+unit module Sprockets::Filters;
 
 sub temporary-filename(Str $prefix) {
   my @range = 
@@ -6,8 +6,8 @@ sub temporary-filename(Str $prefix) {
   65..90, # ALPHA
   97..122 # alpha
   ;
-  my $length = (8..16).pick;
-  my $filename = (chr(@range.pick) xx $length).join('');
+  
+  my $filename = @range.pick((8..16).pick)>>.chr.join;
  
   "{$prefix ?? "$prefix-" !! ""}$filename"
 }

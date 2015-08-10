@@ -1,14 +1,14 @@
-class Sprockets::Pipeline;
 use Sprockets::Locator;
+unit class Sprockets::Pipeline;
 
 # Locator itself
 has %.paths;
 has @.filters;
 
-has Locator $!locator;
+has Sprockets::Locator $!locator;
 
 submethod BUILD(|) {
 	callsame;
 
-	$!locator = Locator.new(:%.paths);
+	$!locator = Sprockets::Locator.new(:%!paths);
 }

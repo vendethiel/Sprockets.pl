@@ -1,4 +1,4 @@
-class Sprockets::File;
+unit class Sprockets::File;
 use Sprockets::Filter;
 
 has Str $.realpath; # file's realpath

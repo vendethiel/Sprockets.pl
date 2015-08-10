@@ -1,7 +1,7 @@
 use lib './t/', './lib';
 use Test;
+use lib::testhelper;
 use Sprockets;
-use Lib::TestHelper;
 
 my $locator = get-locator;
 sub file-path($path, $ext) {
