@@ -18,6 +18,8 @@ our %filters =
     # output buffering... Sigh
     my $filename = temporary-filename('sprockets-filter-pl');
     my $*OUT = open $filename, :w;
+
+    use MONKEY-SEE-NO-EVAL;
     EVAL $content;
     
     # read content, delete file, return content
