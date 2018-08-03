@@ -10,7 +10,7 @@ sub file-path($path, $ext) {
 
 plan 6;
 
-is-deeply split-filename('foo.bar.js.bat.baz'), ('foo.bar', 'js', ['baz', 'bat']),
+is-deeply split-filename('foo.bar.js.bat.baz'), ('foo.bar', 'js', ('baz', 'bat').Seq),
   "The extension is properly recognized and filters are in the correct order";
 is 1, 1;
 
