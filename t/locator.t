@@ -18,5 +18,3 @@ is file-path('a', 'js'), 't/data/themes/default/javascripts/a.js', "Can find a f
 is file-path('file.min', 'js'), 't/data/themes/_shared/javascripts/file.min.js', "Can find a file with dots in its name";
 is file-path('multi', 'js'), 't/data/lib/javascripts/multi.js.pl.pl', "Can find a file with multiple extensions in its name";
 is file-path('i', 'png'), 't/data/themes/_shared/images/i.png', "Finds the correct prefix";
-
-

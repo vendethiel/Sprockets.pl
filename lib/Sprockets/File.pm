@@ -8,11 +8,11 @@ has Str $!content; # lazy field (@see Str)
 
 method Str {
   $!content //= (
-	  self!fetch-content
+    self!fetch-content
     ==> apply-filters(@.filters)
   )
 }
 
 method !fetch-content {
-	slurp $.realpath;
+  slurp $.realpath;
 }

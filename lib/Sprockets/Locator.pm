@@ -18,7 +18,7 @@ method find-file($name, $ext) {
 
 				my ($f, $fext, $filters) = split-filename($_.Str.substr($dir.chars));
 				return Sprockets::File.new(:realpath(~$_), :filters(@$filters))
-          if $f eq $name and $fext eq $ext;
+				  if $f eq $name and $fext eq $ext;
 			}
 		}
 	}

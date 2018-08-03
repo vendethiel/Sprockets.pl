@@ -1,14 +1,14 @@
 unit module Sprockets::Filters;
 
 sub temporary-filename(Str $prefix) {
-  my @range = 
+  my @range =
   48..57, # num
   65..90, # ALPHA
   97..122 # alpha
   ;
-  
+
   my $filename = @range.pick((8..16).pick)>>.chr.join;
- 
+
   "{$prefix ?? "$prefix-" !! ""}$filename"
 }
 
@@ -21,7 +21,7 @@ our %filters =
 
     use MONKEY-SEE-NO-EVAL;
     EVAL $content;
-    
+
     # read content, delete file, return content
     my $new-content = slurp $filename;
     unlink $filename;
