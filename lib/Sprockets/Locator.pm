@@ -11,8 +11,9 @@ method find-file($name, $ext) {
 	for %.paths.kv -> $, $ (:@directories, :%prefixes) {
 		my $prefix = (my $p = %prefixes{get-type-for-ext($ext)}) ?? "/$p" !! "";
 		for @directories {
-			my $dir = "{.&rm-trail}{rm-trail $prefix}/";
-			for dir $dir {
+			my $dir = "{.&rm-trail}{rm-trail $prefix}/".IO;
+			next unless $dir.d;
+			for $dir.dir {
 				next if .IO.d; # TODO go deeper §§
 
 				my ($f, $fext, $filters) = split-filename($_.Str.substr($dir.chars));
