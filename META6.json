@@ -5,7 +5,7 @@
   "author": "github:vendethiel",
   "description": "Ruby Sprockets-like",
   "provides": {
-    "Sprockets": "lib/Sprockets.pm"
+    "Sprockets": "lib/Sprockets.pm6"
   },
   "source-url": "git://github.com/vendethiel/Sprockets.pl.git"
 }
