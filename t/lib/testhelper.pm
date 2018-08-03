@@ -1,4 +1,3 @@
-use lib './lib/';
 use Sprockets::Locator;
 unit module lib::testhelper;
 
