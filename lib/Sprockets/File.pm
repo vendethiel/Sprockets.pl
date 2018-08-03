@@ -13,6 +13,6 @@ method Str {
   )
 }
 
-method !fetch-content is cached {
+method !fetch-content {
 	slurp $.realpath;
 }
