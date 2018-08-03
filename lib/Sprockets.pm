@@ -9,7 +9,7 @@ our sub split-filename(Str $filename) is export {
   my $filters = [];
 
   for $filename.split('.') {
-    next $ext = $_ when any(@extensions);
+    { $ext = $_; next } when any(@extensions);
     # push onto name until $ext gets filled
     [$@name, $filters][defined $ext].push: $_;
   }
