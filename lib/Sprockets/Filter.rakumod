@@ -30,6 +30,6 @@ our %filters =
   ;
 
 our sub apply-filters(@filters, $content is copy) is export {
-  $content .= &(%filters{$_}) for @filters;
+  $content = %filters{$_}($content) for @filters;
   $content;
 }

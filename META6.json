@@ -1,15 +1,16 @@
 {
   "perl": "6.*",
   "name": "Sprockets",
-  "version": "*",
+  "version": "1.0",
   "author": "github:vendethiel",
   "description": "Ruby Sprockets-like",
   "provides": {
-    "Sprockets": "lib/Sprockets.pm6",
-    "Sprockets::File": "lib/Sprockets/File.pm6",
-    "Sprockets::Filter": "lib/Sprockets/Filter.pm6",
-    "Sprockets::Locator": "lib/Sprockets/Locator.pm6",
-    "Sprockets::Pipeline": "lib/Sprockets/Pipeline.pm6"
+    "Sprockets": "lib/Sprockets.rakumod",
+    "Sprockets::File": "lib/Sprockets/File.rakumod",
+    "Sprockets::Filter": "lib/Sprockets/Filter.rakumod",
+    "Sprockets::Locator": "lib/Sprockets/Locator.rakumod",
+    "Sprockets::Pipeline": "lib/Sprockets/Pipeline.rakumod",
+    "Sprockets::DependencyWalker": "lib/Sprockets/DependencyWalker.rakumod"
   },
   "source-url": "git://github.com/vendethiel/Sprockets.pl.git"
 }
