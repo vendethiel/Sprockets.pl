@@ -1,7 +1,7 @@
 Sprockets
 =========
 
-Perl6 version of Sprockets
+Raku version of Sprockets
 
 ### Usage
 
