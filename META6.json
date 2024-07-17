@@ -12,5 +12,5 @@
     "Sprockets::Pipeline": "lib/Sprockets/Pipeline.rakumod",
     "Sprockets::DependencyWalker": "lib/Sprockets/DependencyWalker.rakumod"
   },
-  "source-url": "git://github.com/vendethiel/Sprockets.pl.git"
+  "source-url": "git://github.com/vendethiel/Sprockets.raku.git"
 }
